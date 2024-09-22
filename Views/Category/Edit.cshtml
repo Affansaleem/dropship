@@ -1,0 +1,27 @@
+@model dropship.Models.Entities.Category
+<h1>Edit Category</h1>
+
+@if(Model is null)
+{
+<div class="alert alert-danger" role="alert">
+  No category found!
+</div>
+}
+else{
+<br>
+<form method="post" class=" row g-3">
+    <div class="col-md-12">
+    <label for="name" class="form-label">Id</label>
+    <input type="number" class="form-control" id="name" asp-for="CategoryId" readonly>
+  </div>
+  <div class="col-md-6">
+    <label for="name" class="form-label">Category Name</label>
+    <input type="text" class="form-control" id="name" asp-for="CategoryName">
+  </div>
+   
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Update</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Category">Delete</button>
+  </div>
+</form>
+}

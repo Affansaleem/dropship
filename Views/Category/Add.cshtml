@@ -1,0 +1,13 @@
+@model dropship.Models.AddCategoryViewModel
+
+<h1> Add Category </h1>
+<br>
+<form method="post" class=" row g-3">
+  <div class="col-md-6">
+    <label for="name" class="form-label">Category Name</label>
+    <input type="text" class="form-control" id="name" asp-for="CategoryName">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Add</button>
+  </div>
+</form>

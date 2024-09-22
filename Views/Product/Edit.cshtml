@@ -1,0 +1,38 @@
+@model dropship.Models.Entities.Product
+<h1>Edit Product</h1>
+
+@if(Model is null)
+{
+<div class="alert alert-danger" role="alert">
+  No student found!
+</div>
+}
+else{
+<br>
+<form method="post" class=" row g-3">
+    <div class="col-md-12">
+    <label for="name" class="form-label">Id</label>
+    <input type="number" class="form-control" id="name" asp-for="ProductId" readonly>
+  </div>
+  <div class="col-md-6">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="name" asp-for="ProductName">
+  </div>
+  <div class="col-md-6">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" placeholder="0.1" asp-for="Price">
+  </div>
+  <div class="col-6">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" asp-for="Quantity">
+  </div>
+  <div class="col-6">
+    <label for="tags" class="form-label">Tags</label>
+    <input type="text" class="form-control" id="tags" asp-for="Tags">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Update</button>
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Product">Delete</button>
+  </div>
+</form>
+}

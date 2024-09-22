@@ -1,0 +1,48 @@
+@model List<dropship.Models.Entities.Product>
+
+<h1>Products</h1>
+<form method="get" class="row g-3 mb-3">
+    <div class="col-md-4">
+        <label for="productName" class="form-label">Search by Product Name</label>
+        <input type="text" class="form-control" id="productName" name="productName" placeholder="Enter product name...">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>    
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Tags</th>
+        <th>Catgories</th>
+        
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+        {
+            <tr>
+            <td> @i.ProductId</td>
+            <td> @i.ProductName</td>
+            <td> @i.Price</td>
+            <td> @i.Quantity</td>
+            <td> @i.Tags</td>
+            <td>
+                @* For each product contains  categories in it *@
+            @foreach (var category in i.ProductCategories)
+            {
+                @* Yes this is a long realtionship made between them but it is necessary for this to work actally as many-many realtionship has been formed *@
+                <span>@category.Category.CategoryName</span>
+            }
+            </td>
+            <td> <a type="button" class="btn btn-outline-secondary" asp-controller="Product" asp-action="Edit" asp-route-id=@i.ProductId>Edit</a>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>

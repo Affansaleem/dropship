@@ -1,0 +1,26 @@
+@model List<dropship.Models.Entities.Category>
+
+<h1>Categories</h1>
+
+<table class="table">
+    <thead>
+        <tr>    
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+        
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+        {
+            <tr>
+            <td> @i.CategoryId</td>
+            <td> @i.CategoryName</td>
+            <td> <a type="button" class="btn btn-outline-secondary" asp-controller="Category" asp-action="Edit" asp-route-id=@i.CategoryId>Edit</a>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>

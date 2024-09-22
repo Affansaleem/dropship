@@ -1,0 +1,38 @@
+@model dropship.Models.AddProductViewModel
+
+<h1> Add Products </h1>
+<br>
+<form method="post" class=" row g-3">
+  <div class="col-md-6">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="name" asp-for="ProductName">
+    <span asp-validation-for="ProductName" class="text-danger"></span>
+
+  </div>
+  <div class="col-md-6">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" placeholder="0.1" asp-for="Price">
+  </div>
+  <div class="col-6">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" asp-for="Quantity">
+  </div>
+  <div class="col-6">
+    <label for="tags" class="form-label">Tags</label>
+    <input type="text" class="form-control" id="tags" asp-for="Tags">
+  </div>
+  @* This below containt he check box for categories *@
+   <div class="col-12">
+        <label for="Categories">Categories</label>
+        @foreach (var category in Model.Categories)
+        {
+            <div>
+                <input type="checkbox" name="SelectedCategoryIds" value="@category.CategoryId" />
+                <label>@category.CategoryName</label>
+            </div>
+        }
+    </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Add</button>
+  </div>
+</form>
